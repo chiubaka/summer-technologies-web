@@ -1,5 +1,27 @@
-html, body, #map-canvas {
+html, body, #map-canvas, #image-picker {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+#map-canvas, #image-picker {
+  float: left;
+}
+
+#map-canvas {
+  width: 90%;
+  float: left;
+}
+
+#image-picker {
+  width: 10%;
+  float: left;
+}
+
+#image-picker img {
+  width: 100%;
 }

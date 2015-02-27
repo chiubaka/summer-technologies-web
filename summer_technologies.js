@@ -2,7 +2,7 @@
  * Created by dchiu on 2/27/15.
  */
 
-var locations = [];
+var markers = [];
 var map;
 
 google.maps.event.addDomListener(window, "load", init);
@@ -26,13 +26,14 @@ function initParse() {
 
         var imageLocation = new google.maps.LatLng(results[i].get("Latitude"),
           results[i].get("Longitude"));
-        locations.push(imageLocation);
 
         // Put a marker in the map at the location where this image was taken.
-        new google.maps.Marker({
+        var marker = new google.maps.Marker({
           position: imageLocation,
           map: map
         });
+
+        markers.push(marker);
 
         // Extend the bounds to include this location so we can place the map's viewport at the
         // right place to view all locations.
@@ -42,8 +43,16 @@ function initParse() {
         var imageURL = imageFile.url();
         var imageTag = document.createElement("img");
         imageTag.src = imageURL;
-        document.body.appendChild(imageTag);
+        $("#image-picker").append(imageTag);
       }
+
+      $("#image-picker img").hover(function(event) {
+        var marker = markers[$(this).index()];
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      }, function(event) {
+        var marker = markers[$(this).index()];
+        marker.setAnimation(null);
+      });
 
       map.fitBounds(bounds);
     },

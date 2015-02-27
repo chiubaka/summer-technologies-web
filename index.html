@@ -3,7 +3,10 @@
 <head lang="en">
   <meta charset="UTF-8">
   <title>Summer Technologies</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="summer_technologies.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script type="text/javascript"
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd0taFgR1356DN3ODmhN6B_M0xg6hVdaU">
   </script>
@@ -11,6 +14,27 @@
   <script src="summer_technologies.js"></script>
 </head>
 <body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Summer Technologies</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Pictures<span class="sr-only">(current)</span></a></li>
+          <!--<li><a href="#">Link</a></li>-->
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div>
+  </nav>
   <div id="map-canvas"></div>
+  <div id="image-picker"></div>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>
