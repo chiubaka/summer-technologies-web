@@ -3,6 +3,7 @@
  */
 
 var markers = [];
+var infoWindows = [];
 var map;
 
 google.maps.event.addDomListener(window, "load", init);
@@ -21,6 +22,7 @@ function initParse() {
   query.find({
     success: function(results) {
       var bounds = new google.maps.LatLngBounds();
+      var infoWindow = new google.maps.InfoWindow();
       for (var i = 0; i < results.length; i++) {
         var imageFile = results[i].get("File");
 
@@ -44,6 +46,13 @@ function initParse() {
         var imageTag = document.createElement("img");
         imageTag.src = imageURL;
         $("#image-picker").append(imageTag);
+
+        marker.content = imageTag.cloneNode(true);
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infoWindow.setContent(this.content);
+          infoWindow.open(map, this);
+        });
       }
 
       $("#image-picker img").hover(function(event) {
